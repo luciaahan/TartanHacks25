@@ -94,4 +94,5 @@ def generate_schedule_action(request):
 
     return render(request, 'plan4me/generatedschedule.html')
 
-
+def show_us_action(request):
+    return render(request, 'plan4me/aboutUs.html')

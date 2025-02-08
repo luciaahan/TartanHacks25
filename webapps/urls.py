@@ -24,4 +24,6 @@ urlpatterns = [
     path('get-started', views.get_started_action, name='get-started'),
     path('personalize', views.personalize_action, name='personalize'),
     path('generate-schedule', views.generate_schedule_action, name='generate-schedule'),
+    path('aboutUs', views.show_us_action, name='aboutUs'),
+    
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
