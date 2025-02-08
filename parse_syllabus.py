@@ -44,7 +44,7 @@ def analyze_text(text):
   Make all the dates in the format of MM/DD
   '''
   response = client.beta.chat.completions.parse(
-    model="gpt-4o-mini",
+    model="gpt-4o",
     store=True,
     messages=[
       {"role": "system", "content": system_prompt},

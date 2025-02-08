@@ -34,7 +34,7 @@ def generate_schedule(data):
   studytimes = ['Global Business Study 2025-02-08 15:00 - 17:00', 'Social Psychology Study 2025-02-08 19:00 - 22:30'] 
   '''
   response = client.beta.chat.completions.parse(
-    model="gpt-4o-mini",
+    model="gpt-4o",
     store=True,
     messages=[
       {"role": "system", "content": system_prompt},
