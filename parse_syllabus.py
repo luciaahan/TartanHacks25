@@ -1,6 +1,8 @@
 from openai import OpenAI
 import fitz
 from pydantic import BaseModel
+import os
+from dotenv import load_dotenv
 
 class core_info(BaseModel):
   className: str
@@ -20,6 +22,7 @@ def text_2_pdf(pdf_path):
 
 def analyze_text(text):
 
+  OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
   client = OpenAI(
     api_key="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"
   )
@@ -52,6 +55,7 @@ def analyze_text(text):
 
 
 def main():
+  load_dotenv()  # Load environment variables from .env
   pdf_file = 'syllabus.pdf'
   extracted_syllabus = text_2_pdf(pdf_file)
   extracted_data = analyze_text(extracted_syllabus)
