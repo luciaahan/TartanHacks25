@@ -23,11 +23,14 @@ List of Modules to install. You can install in the virtual environment that you 
 
 <h2> How to Run </h2>
 Run these commands:
-<code>
-python3 manage.py makemigrations
-python3 manage.py migrate
-python3 manage.py runserver
-</code>
+<pre>
+  <code>
+  python3 manage.py makemigrations
+  python3 manage.py migrate
+  python3 manage.py runserver
+  </code>
+</pre>
+
 Then put this link in your website. <br>
 <a href = "http://localhost:8000/"> Local Host Page </a>
 
