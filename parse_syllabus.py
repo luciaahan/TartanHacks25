@@ -24,7 +24,7 @@ def analyze_text(text):
 
   OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
   client = OpenAI(
-    api_key="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"
+    api_key=OPENAI_API_KEY
   )
 
   system_prompt = '''
