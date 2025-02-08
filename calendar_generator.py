@@ -1,6 +1,6 @@
 from ics import Calendar, Event
 from datetime import datetime
-#import parse_syllabus
+import parse_syllabus
 from fce import get_fce
 
 def create_calendar(syllabus):
