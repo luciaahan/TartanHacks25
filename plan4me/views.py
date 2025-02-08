@@ -62,17 +62,19 @@ def get_started_action(request):
 
 def personalize_action(request):
     if request.method == "GET":
-        schedule_result = create_schedule.main(CourseInfo.objects.all()) # caltime format
-        calendar_generator.create_calendar(schedule_result)
+        return render(request, 'plan4me/personalize.html')
+    
+    schedule_result = create_schedule.main(CourseInfo.objects.all()) # caltime format
+    calendar_generator.create_calendar(schedule_result)
 
-        return render(request, 'plan4me/generatedschedule.html')
+    return render(request, 'plan4me/generatedschedule.html')
 
     # pass course FCEs into chatGPT
     # pass options into chatGPT to generate calendar
 
 
     # click generate schedule -> generate schedule page
-    return render(request, 'plan4me/generatedschedule.html')
+    # return render(request, 'plan4me/generatedschedule.html')
 
 
 def generate_schedule_action(request):
