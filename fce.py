@@ -3,7 +3,7 @@ import numpy as np
 
 
 
-def get_fce(course_no):
+def get_fce(course_no, prof_name = None):
     df_2024 = pd.read_csv("fce_data_2024.csv")
     df_2023 = pd.read_csv("fce_data_2023.csv")
     df_2022 = pd.read_csv("fce_data_2022.csv")
@@ -13,6 +13,9 @@ def get_fce(course_no):
         course_data = df[df["Num"] == course_no]
     except:
         print("Error: Invalid Course Number")
-    #print(course_data)
+    try:
+        assert(sum(course_data["Instructor"].isin([prof_name])) > 0)
+        course_data = course_data[course_data["Instructor"] == prof_name]
+    except:
+        course_data = course_data
     return np.mean(course_data["Hrs Per Week"])
-
