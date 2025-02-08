@@ -18,15 +18,37 @@
   <link href="/static/plan4me/images/favicon.ico" rel="shortcut icon" type="image/x-icon">
   <link href="/static/plan4me/images/webclip.png" rel="apple-touch-icon">
   <style>
-    .row {
-      display: flex;
+    .gallery {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr); /* 4 columns */
+        gap: 20px; /* Space between items */
+        text-align: center;
     }
 
-    .column {
-      flex: 33.33%;
-      padding: 5px;
+    .image-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
-  </style>
+
+    .image-wrapper {
+        display: flex;
+        align-items: center; /* Vertically center image */
+        justify-content: center;
+        height: 250px; /* Set a fixed container height */
+        overflow: hidden;
+    }
+
+    .image-wrapper img {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain; /* Keeps aspect ratio without cropping */
+    }
+
+    .caption {
+        margin-top: 10px;
+    }
+</style>
 </head>
 <body>
     <div data-collapse="medium" data-animation="default" data-duration="400" data-easing="ease" data-easing2="ease" role="banner" class="navigation w-nav">
@@ -45,38 +67,51 @@
           </a>
         </div>
     </div>
+    
+
     <div class="container">
         <div class="motto-wrap">
           <div class="heading-jumbo-small">Our Team</div>
         </div>
-        <div class="row">
-            <div class="column">
-              <img src="/media/profiles/lucia.png" alt="Lucia" style="width:100%">
-              <p align = "center">
-                Lucia Han <br>
-                Sophomore in ECE
-              </p>
+        <div class="gallery">
+            <div class="image-container">
+                <div class="image-wrapper">
+                    <img src="/media/profiles/lucia.png" alt="Lucia" style="width:100%">
+                </div>
+                <div class="caption">
+                    Lucia Han <br>
+                    Sophomore in ECE 
+                </div>
             </div>
-            <div class="column">
-                <img src="img_snow.jpg" alt="Yuna" style="width:100%">
-                <p align = "center">
+    
+            <div class="image-container">
+                <div class="image-wrapper">
+                    <img src="/media/profiles/yuna.png" alt="Yuna" style="width:100%">
+                </div>
+                <div class="caption">
                     Yuna Shin <br>
-                    Senior in ECE
-                </p>
+                    Senior in ECE 
+                </div>
             </div>
-            <div class="column">
-              <img src="img_forest.jpg" alt="Sohee" style="width:100%">
-              <p align = "center">
-                Sohee Yoon <br>
-                Sophomore in Stat&ML
-              </p>
+    
+            <div class="image-container">
+                <div class="image-wrapper">
+                    <img src="/media/profiles/sohee.png" alt="Sohee" style="width:100%">
+                </div>
+                <div class="caption">
+                    Sohee Yoon <br>
+                    Sophomore in Stat ML 
+                </div>
             </div>
-            <div class="column">
-              <img src="img_mountains.jpg" alt="Hayden" style="width:100%">
-              <p align = "center">
-                Hayden Lee <br>
-                Sophomore in Stat&ML
-              </p>
+    
+            <div class="image-container">
+                <div class="image-wrapper">
+                    <img src="/media/profiles/hayden.png" alt="Hayden" style="width:100%">
+                </div>
+                <div class="caption">
+                    Hayden Lee <br>
+                    Sophomore in Stat ML 
+                </div>
             </div>
         </div>
         <div class="divider"></div>
