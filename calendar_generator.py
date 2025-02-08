@@ -1,6 +1,6 @@
 from ics import Calendar, Event
 from datetime import datetime
-import parse_syllabus
+#import parse_syllabus
 from fce import get_fce
 
 def create_calendar(syllabus):
@@ -11,7 +11,15 @@ def create_calendar(syllabus):
     This calendar will be saved as a .ics file
     '''
     c = Calendar()
-    for event in syllabus:
+    for event in syllabus.hwTimes:
+        e = create_event(event)
+        c.events.add(e)
+    
+    for event in syllabus.studyTimes:
+        e = create_event(event)
+        c.events.add(e)
+
+    for event in syllabus.lectureTimes:
         e = create_event(event)
         c.events.add(e)
     # hw_dates = syllabus.hwDates
@@ -42,13 +50,19 @@ def class_to_int(class_name):
     
 def create_event(event):
     event_info = event.split(" ")
+    
+    name = ""
+    for i in range(len(event_info) - 4):
+        name += event_info[i] + " "
+    print(name)
     e = Event()
-    e.name = event_info[0]
-    date = event_info[1]
-    start_time = event_info[2]
-    end_time = event_info[4]
+    e.name = name
+    date = event_info[-4]
+    start_time = event_info[-3]
+    end_time = event_info[-1]
     e.begin = date + " " + start_time + ":00"
     e.end = date + " " + end_time + ":00"
+    
     return e
     '''
     for lecture in lectures:
