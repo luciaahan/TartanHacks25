@@ -314,7 +314,7 @@
         });
     }
     // Load and parse the ICS file when the page loads
-    fetch('2025my.ics')
+    fetch('/media/calendars/my.ics')
         .then(response => response.text())
         .then(icsData => {
             events = parseICSManually(icsData);
