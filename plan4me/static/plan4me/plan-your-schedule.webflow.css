@@ -172,8 +172,9 @@ figcaption {
 }
 
 .paragraph-bigger {
+  color: #000000;
   opacity: 1;
-  background-color: #000;
+  background-color: #ffffff;
   margin-bottom: 10px;
   font-size: 20px;
   font-weight: 400;
@@ -467,7 +468,7 @@ figcaption {
   opacity: 1;
   color: #fff;
   background-color: #f4f4f4;
-  background-image: url('../plan4me/images/Screenshot-2025-02-07-at-10.36.49-PM-p-1080.png');
+  background-image: url('../plan4me/images/wave.png');
   background-position: 0 0;
   background-size: cover;
   justify-content: center;
