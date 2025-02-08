@@ -5,19 +5,18 @@ from django.shortcuts import get_object_or_404, redirect, render
 from plan4me.models import CourseInfo
 
 from openai import OpenAI
-import fitz
 from pydantic import BaseModel
 import os
 from dotenv import load_dotenv
-import parse_syllabus
+import plan4me.parse_syllabus as parse_syllabus
 
 
 def global_action(request):
-    return redirect('home')
+    return render(request, 'plan4me/index.html')
 
 def get_started_action(request):
     if request.method == 'GET':
-        return render(request, 'plan4me/get_started.html', context={'message': ''})
+        return render(request, 'plan4me/getstarted.html', context={'message': ''})
     
     # parse syllabus
     pdf_file = 'syllabus.pdf' # replace with pdf file uploaded
@@ -37,14 +36,14 @@ def get_started_action(request):
     
     new_course_info.save()
 
-    # click move on -> settings page
+    # click move on -> personalize page
     # click add more classes -> same page
-    return render(request, 'plan4me/get_started.html', context={'message': ''})
+    return render(request, 'plan4me/getstarted.html', context={'message': ''})
 
 
-def settings_action(request):
+def personalize_action(request):
     if request.method == "GET":
-        return render(request, 'plan4me/settings.html')
+        return render(request, 'plan4me/personalize.html')
 
     time_option = request.POST.get('time_option') # user input
     
@@ -53,11 +52,11 @@ def settings_action(request):
 
 
     # click generate schedule -> generate schedule page
-    return render(request, 'plan4me/generate_schedule.html')
+    return render(request, 'plan4me/generateschedule.html')
 
 
 def generate_schedule_action(request):
 
-    return render(request, 'plan4me/generate_schedule.html')
+    return render(request, 'plan4me/generateschedule.html')
 
 

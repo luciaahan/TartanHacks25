@@ -20,7 +20,7 @@ from plan4me import views
 urlpatterns = [
     path('', views.global_action, name='home'),
     path('get-started', views.get_started_action),
-    path('settings', views.settings_action),
+    path('personalize', views.personalize_action),
     path('generate-schedule', views.generate_schedule_action),
 
 ]
