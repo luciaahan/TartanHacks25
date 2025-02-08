@@ -13,3 +13,20 @@ Input the syllabi for your classes, and Plan4Me will create a calendar with all 
 It would also plan out your studying time, when to start your homework, and other things to keep you on track.
 
 <h2> Installation </h2>
+List of Modules to install. You can install in the virtual environment that you are using with <code>pip install</code>.
+<ul>
+  <li><code>ics</code></li>
+  <li><code>django</code></li>
+  <li><code>openai</code></li>
+  <li><code>python-dotenv</code></li>
+</ul>
+
+<h2> How to Run </h2>
+Run these commands:
+<code>
+python3 manage.py makemigrations
+python3 manage.py migrate
+python3 manage.py runserver
+</code>
+Then put this link in your website.
+<a href = "http://localhost:8000/"> Local Host Page </a>
