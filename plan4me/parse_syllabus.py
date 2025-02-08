@@ -56,5 +56,5 @@ def parseThis(pdf_file):
   load_dotenv()  # Load environment variables from .env
   extracted_syllabus = text_2_pdf(pdf_file)
   extracted_data = analyze_text(extracted_syllabus)
-  print(extracted_data.className)
+  return extracted_data
 

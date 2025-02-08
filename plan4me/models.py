@@ -10,5 +10,6 @@ class CourseInfo(models.Model):
     late_day = models.CharField(max_length=10)
     attendance = models.TextField(blank=True, null=True)
     grade_weight = models.TextField(blank=True, null=True)
+    fce = models.CharField(blank=True, max_length=5)
 
 

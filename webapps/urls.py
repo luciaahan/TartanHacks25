@@ -16,11 +16,12 @@ Including another URLconf
 """
 from django.urls import path
 from plan4me import views
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('', views.global_action, name='home'),
-    path('get-started', views.get_started_action),
-    path('personalize', views.personalize_action),
-    path('generate-schedule', views.generate_schedule_action),
-
-]
+    path('get-started', views.get_started_action, name='get-started'),
+    path('personalize', views.personalize_action, name='personalize'),
+    path('generate-schedule', views.generate_schedule_action, name='generate-schedule'),
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

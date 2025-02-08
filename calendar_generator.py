@@ -3,7 +3,7 @@ from datetime import datetime
 import parse_syllabus
 from fce import get_fce
 
-def create_calendar(syllabus):
+def create_calendar(schedule):
     '''
     Syllabus is a list of strings with the information in the following format
     "[Event Name (without spaces)] YYYY-MM-DD HH:MM - HH:MM"
@@ -11,15 +11,15 @@ def create_calendar(syllabus):
     This calendar will be saved as a .ics file
     '''
     c = Calendar()
-    for event in syllabus.hwTimes:
+    for event in schedule.hwTimes:
         e = create_event(event)
         c.events.add(e)
     
-    for event in syllabus.studyTimes:
+    for event in schedule.studytimes:
         e = create_event(event)
         c.events.add(e)
 
-    for event in syllabus.lectureTimes:
+    for event in schedule.lectureTime:
         e = create_event(event)
         c.events.add(e)
     # hw_dates = syllabus.hwDates
@@ -32,10 +32,8 @@ def create_calendar(syllabus):
     # for e in lecture_events:
     #     c.events.add(e)
 
-    with open('my.ics', 'w') as f:
+    with open('media/calendars/my.ics', 'w') as f:
          f.writelines(c.serialize_iter())
-    
-    return f
 
 '''
 def class_to_int(class_name):
