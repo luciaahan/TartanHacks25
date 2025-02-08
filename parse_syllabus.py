@@ -21,15 +21,15 @@ def text_2_pdf(pdf_path):
   return text
 
 def analyze_text(text):
-
-  OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+  
   client = OpenAI(
-    api_key=OPENAI_API_KEY
+    api_key=os.getenv("OPENAI_API_KEY")
+
   )
 
   system_prompt = '''
   You will be provided with a text that is a syllabus of a course at Carnegie Mellon University. 
-  You will read through the document and give me the necessary information. 
+  You will rxead through the document and give me the necessary information. 
   For the return format, you have to follow these:
   - className is course name 
   - classNumber is course number
