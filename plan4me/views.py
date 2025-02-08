@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import Http404, HttpResponse
 from django.shortcuts import get_object_or_404, redirect, render
 
-from plan4me.models import CourseInfo
+from plan4me.models import CourseInfo, PersonalizedOptions
 
 from plan4me.forms import UploadFileForm
 import plan4me.parse_syllabus as parse_syllabus
@@ -64,7 +64,20 @@ def personalize_action(request):
     if request.method == "GET":
         return render(request, 'plan4me/personalize.html')
     
-    schedule_result = create_schedule.main(CourseInfo.objects.all()) # caltime format
+    new_personalize = PersonalizedOptions()
+
+    new_personalize.hours_study = request.POST.get('study_hours')
+    new_personalize.allocate_study = request.POST.get('exam_focus')
+    new_personalize.balance = request.POST.get('balance')
+    new_personalize.time_prefer = request.POST.get('study_time')
+    new_personalize.study_session = request.POST.get('study_sessions')
+
+    new_personalize.save()
+
+    course_list = list(CourseInfo.objects.all())
+    combined_data = course_list + [new_personalize]
+
+    schedule_result = create_schedule.main(combined_data) # caltime format
     calendar_generator.create_calendar(schedule_result)
 
     return render(request, 'plan4me/generatedschedule.html')

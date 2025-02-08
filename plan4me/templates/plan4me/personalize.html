@@ -38,50 +38,55 @@
       <div class="heading-jumbo">Personalize Your Study Preferences</div>
     </div>
     <div class="w-form">
-      <form id="email-form" name="email-form" data-name="Email Form" method="get" class="form" data-wf-page-id="67a6a7f45c86398b692bbd75" data-wf-element-id="d35fd5f8-d44b-93fb-a004-7c38a0f27717"><label for="field">How many hours per day can you dedicate to studying?</label><select id="field" name="field" data-name="Field" required="" class="w-select">
-          <option value="Another option">Select One</option>
+      <form id="email-form" name="email-form" data-name="Email Form" method="post" action="{% url 'personalize' %}" class="form" data-wf-page-id="67a6a7f45c86398b692bbd75" data-wf-element-id="d35fd5f8-d44b-93fb-a004-7c38a0f27717">
+        <label for="study-hours">How many hours per day can you dedicate to studying?</label>
+      <select id="study-hours" name="study_hours" required class="w-select">
+          <option value="">Select One</option>
           <option value="1-2">1-2 hours</option>
           <option value="3-4">3-4 hours</option>
           <option value="5-6">5-6 hours</option>
           <option value="7+">7+ hours</option>
-        </select><label for="field-2">How do you want to allocate your study time for major exams?</label><select id="field-2" name="field-2" data-name="Field 2" required="" class="w-select">
-          <option value="Another option">Select One</option>
-          <option value="">Focus more on exams with higher weightage.</option>
-          <option value="First">Equal time for all exams.</option>
-        </select><label for="field-2">How do you want to balance your time between assignments and studying for exams?</label><select id="field-2" name="field-2" data-name="Field 2" required="" class="w-select">
-          <option value="Another option">Select One</option>
-          <option value="">Prioritize assignments first.</option>
-          <option value="First">Prioritize exams first.</option>
-          <option value="Another option">Balance both equally.</option>
-        </select><label for="field-2">What times of day do you prefer to study?</label><select id="field-2" name="field-2" data-name="Field 2" required="" class="w-select">
-          <option value="Another option">Select One</option>
-          <option value="">Morning</option>
-          <option value="First">Afternoon</option>
-          <option value="Another option">Evening</option>
-          <option value="Another option">Late Night</option>
-        </select><label for="field-2">How do you want to balance your time between assignments and studying for exams?</label><select id="field-2" name="field-2" data-name="Field 2" required="" class="w-select">
-          <option value="Another option">Select One</option>
-          <option value="">Long study sessions (2-3 hours at a time).</option>
-          <option value="First">Short, focused sessions (30-60 minutes each).</option>
-        </select></form>
+      </select>
+
+      <label for="exam-focus">How do you want to allocate your study time for major exams?</label>
+      <select id="exam-focus" name="exam_focus" required class="w-select">
+          <option value="">Select One</option>
+          <option value="high_weightage">Focus more on exams with higher weightage.</option>
+          <option value="equal_time">Equal time for all exams.</option>
+      </select>
+
+      <label for="balance">How do you want to balance your time between assignments and studying for exams?</label>
+      <select id="balance" name="balance" required class="w-select">
+          <option value="">Select One</option>
+          <option value="assignments_first">Prioritize assignments first.</option>
+          <option value="exams_first">Prioritize exams first.</option>
+          <option value="equal">Balance both equally.</option>
+      </select>
+
+      <label for="study-time">What times of day do you prefer to study?</label>
+      <select id="study-time" name="study_time" required class="w-select">
+          <option value="">Select One</option>
+          <option value="morning">Morning</option>
+          <option value="afternoon">Afternoon</option>
+          <option value="evening">Evening</option>
+          <option value="late_night">Late Night</option>
+      </select>
+
+      <label for="study-sessions">What study sessions do you prefer?</label>
+      <select id="study-sessions" name="study_sessions" required class="w-select">
+          <option value="">Select One</option>
+          <option value="long">Long study sessions (2-3 hours at a time).</option>
+          <option value="short">Short, focused sessions (30-60 minutes each).</option>
+      </select>
+
+      <button type="submit" class="primary-button cc-jumbo-button w-inline-block">Submit</button>
+      {% csrf_token %}
+    </form>
       <div class="w-form-done">
         <div>Thank you! Your submission has been received!</div>
       </div>
       <div class="w-form-fail">
         <div>Oops! Something went wrong while submitting the form.</div>
-      </div>
-    </div>
-    <div class="container">
-      <div class="styleguide-content-wrap">
-        <div class="divider"></div>
-        <div class="divider"></div>
-        <form method="POST" action="{% url 'personalize' %}">
-          <button class="primary-button cc-jumbo-button w-inline-block">
-            <div>Generate schedule</div>
-          </button>
-          {% csrf_token %}
-        </form>
-        <div class="divider"></div>
       </div>
     </div>
   </div>

@@ -28,6 +28,12 @@ def generate_schedule(data):
   following the students' preferences.
   You also have access to fce of the course, which is the expected number of hours
   spent a week for a course. 
+  Lastly, you also know student's different preferences for studying.
+  hours_study represents hours of time students prefer to spend on studying.
+  allocate_study represents whether students want to allocate study time more on exam that has higher weightage.
+  balance represents whether students want to prioritize assignments or exams.
+  time_prefer represents which time of the day student prefers to study.
+  study_session represents for how long student wants to have one study session. long represents 2-3 hours at a time, and short represents 30-60 minutes at a time.
   Considering all these factors, your output should look like this:
   Event Name without spaces YYYY-MM-DD HH:MM - HH:MM
   hwTimes = ['Introduction to ECE HW1 2025-02-05 11:00 - 13:45', 'Fundamentals of CS HW2 2025-02-07 18:00 - 21:45'] 

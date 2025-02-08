@@ -13,3 +13,9 @@ class CourseInfo(models.Model):
     fce = models.CharField(blank=True, max_length=5)
 
 
+class PersonalizedOptions(models.Model):
+    hours_study = models.CharField(max_length=20)
+    allocate_study = models.CharField(max_length=100)
+    balance = models.CharField(max_length=100)
+    time_prefer = models.CharField(max_length=100)
+    study_session = models.CharField(max_length=100)
